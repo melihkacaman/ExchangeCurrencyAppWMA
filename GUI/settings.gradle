@@ -1,2 +1,4 @@
 rootProject.name = 'GUI'
+include 'Entity'
+include 'BusinessLayer'
 

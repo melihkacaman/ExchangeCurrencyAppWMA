@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="asd" target="1.5" />
+      <module name="BusinessLayer" target="16" />
+      <module name="BusinessLayer.main" target="16" />
+      <module name="BusinessLayer.test" target="16" />
+      <module name="Entitiess" target="16" />
+      <module name="Entitiess.main" target="16" />
+      <module name="Entitiess.test" target="16" />
+      <module name="ExchangeCurrencyAppWMA" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/BusinessLayer" />
+    <file type="web" url="file://$PROJECT_DIR$/Entitiess" />
     <file type="web" url="file://$PROJECT_DIR$/GUI" />
   </component>
   <component name="ProjectRootManager">
