@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CurrDefinitionProcess {
-    static private List<CurrDefinition> currencies;
+    public static List<CurrDefinition> currencies;
 
     static {
         try {
@@ -42,6 +42,23 @@ public class CurrDefinitionProcess {
 
         return favouriteCurrencies;
     }
+
+    public static CurrDefinition getCurrencyFromSelectedItem(String selectedItem){
+        String items[] = selectedItem.split("-");
+        String code = items[0];
+
+        return getCurrencyFromCode(code);
+    }
+
+    public static CurrDefinition getCurrencyFromCode(String code){
+        for (CurrDefinition c : currencies) {
+            if (c.getCode().equals(code)) {
+                return c;
+            }
+        }
+
+        return null;
+    }
 }
 
-// TODO: 11/15/2021 java json denemesi  
+

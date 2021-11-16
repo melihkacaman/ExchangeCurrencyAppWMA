@@ -1,15 +1,21 @@
 package views;
 
+import local.CurrDefinition;
+import models.HomeModel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HomeView extends JPanel{
     private JTextField txt_name;
     private JButton btn_send;
     private JComboBox<String> combo_currencyList;
+    private HomeModel model;
 
-
-    public HomeView(){
+    public HomeView(HomeModel model){
+        this.model = model;
         this.setLayout(new GridLayout(3, 2));
         add(new JLabel("Name: "));
         txt_name = new JTextField(20);
@@ -17,11 +23,26 @@ public class HomeView extends JPanel{
 
         add(new JLabel("Favourite Currency:"));
         combo_currencyList = new JComboBox<>();
-        combo_currencyList.addItem("asdasd"); // TODO: 11/15/2021 add currecies
+        // populate comboBox
+        for (CurrDefinition curr: this.model.getCurrencies()) {
+            combo_currencyList.addItem(curr.getCode() + "-" + curr.getName());
+        }
         add(combo_currencyList);
 
         btn_send = new JButton("Go On!");
         add(new JLabel(""));
         add(btn_send);
+    }
+
+    public String getName(){
+        return txt_name.getText();
+    }
+
+    public String getSelectedCurrency(){
+        return combo_currencyList.getSelectedItem().toString();
+    }
+
+    public void addActionListener(ActionListener listener){
+        btn_send.addActionListener(listener);
     }
 }
