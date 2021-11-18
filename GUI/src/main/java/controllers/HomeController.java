@@ -1,6 +1,6 @@
 package controllers;
 
-import app.MainScreen;
+import app.App;
 import common.ActiveUser;
 import common.User;
 import local.CurrDefinition;
@@ -12,21 +12,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class HomeController {
+public class HomeController implements BaseController {
     private HomeView homeView;
     private List<CurrDefinition> currDefinitionList;
     private HomeModel homeModel;
 
-    public HomeController() {
+    @Override
+    public JPanel getView() {
+        return homeView;
+    }
+
+    @Override
+    public void initializeComponents() {
         currDefinitionList = CurrDefinitionProcess.currencies;
         homeModel = new HomeModel(currDefinitionList);
         homeView = new HomeView(homeModel);
 
         homeView.addActionListener(new GoOnListener());
-    }
-
-    public JPanel getView() {
-        return homeView;
     }
 
 
@@ -41,7 +43,8 @@ public class HomeController {
             User user = new User(name, currencyDefinition);
             ActiveUser.activeUser = user;
 
-           MainScreen.removeView(HomeController.this.homeView);
+           // App.removeView(HomeController.this.homeView);
+           App.nextScreen(HomeController.this.homeView);
         }
     }
 }
