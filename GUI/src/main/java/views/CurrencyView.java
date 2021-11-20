@@ -3,8 +3,10 @@ package views;
 import common.ActiveUser;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 public class CurrencyView extends JPanel {
@@ -35,29 +37,41 @@ public class CurrencyView extends JPanel {
         pnl2.add(lst_currencies);
         this.add(pnl2);
 
+        JPanel pnl3 = new JPanel(new GridLayout(3,1));
+
         btn_refresh = new JButton("Refresh the list");
-        this.add(btn_refresh);
+        pnl3.add(btn_refresh);
 
         btn_calculate = new JButton("Calculate the currency");
-        this.add(btn_calculate);
+        pnl3.add(btn_calculate);
+
+        btn_allList = new JButton("Crypto!");
+        pnl3.add(btn_allList);
+
+        this.add(pnl3);
     }
 
     public synchronized void populateList(List<String> items){
+        listModel.clear();
         for (String item : items) {
             listModel.addElement(item);
         }
         lst_currencies.repaint();
     }
 
-    public void addListenerToRefreshButton(){
-
+    public void addListenerToRefreshButton(ActionListener listener){
+        btn_refresh.addActionListener(listener);
     }
 
-    public void addListenerToCalculateButton(){
-
+    public void addListenerToCalculateButton(ActionListener listener){
+        btn_calculate.addActionListener(listener);
     }
 
-    public void addListenerToAllListButton(){
+    public void addListenerToAllListButton(ActionListener listener){
+        btn_allList.addActionListener(listener);
+    }
 
+    public void showMessage(String infoMessage, String titleBar){
+        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
 }
