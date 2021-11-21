@@ -20,11 +20,10 @@ public class CalculateController implements BaseController {
     public void initializeComponents() {
         calculateModel = new Calculate(CurrDefinitionProcess.currencies);
         calculateView = new CalculateView(calculateModel);
-
     }
 
     @Override
     public JPanel getView() {
-        return null;
+        return calculateView;
     }
 }

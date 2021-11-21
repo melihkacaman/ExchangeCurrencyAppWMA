@@ -57,6 +57,11 @@ public class App {
         BaseController controller = screens.pop();
         controller.initializeComponents();
         mainScreen.add(controller.getView());
+        mainScreen.revalidate();
         mainScreen.repaint();
+    }
+
+    public static void pushScreen(BaseController controller){
+        screens.push(controller);
     }
 }

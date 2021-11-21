@@ -1,6 +1,7 @@
 package controllers;
 
 import api.ApiConnect;
+import app.App;
 import common.ActiveUser;
 import org.json.simple.parser.ParseException;
 import views.CurrencyView;
@@ -59,7 +60,8 @@ public class CurrencyController implements BaseController {
     private class CalculateListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            App.pushScreen(new CalculateController());
+            App.nextScreen(CurrencyController.this.currencyView);
         }
     }
 }
