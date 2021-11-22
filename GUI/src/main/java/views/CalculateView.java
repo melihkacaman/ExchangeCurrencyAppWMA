@@ -45,6 +45,8 @@ public class CalculateView extends JPanel {
         pnl2.add(new JLabel("To:"));
         pnl2.add(combo_to);
         txt_to = new JTextField(20);
+        txt_to.setFont(txt_to.getFont().deriveFont(Font.BOLD, 14f));
+        txt_to.setEnabled(false);
         pnl2.add(txt_to);
         this.add(pnl2);
 
@@ -76,6 +78,10 @@ public class CalculateView extends JPanel {
 
     public String getItemFromCombo_from(){
         return combo_from.getSelectedItem().toString();
+    }
+
+    public String getTxt_from(){
+        return txt_from.getText();
     }
 
     public void setTxt_to(String text){
