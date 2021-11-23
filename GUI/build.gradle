@@ -8,13 +8,21 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-
+def retrofitVersion = '2.3.0'
+def rxJavaVersion = '2.1.1'
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation project(path: ':Entity')
     implementation project(path: ':BusinessLayer')
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 }
 
 test {

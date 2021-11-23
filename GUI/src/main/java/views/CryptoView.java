@@ -5,6 +5,7 @@ import common.Crypto;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CryptoView extends JPanel {
@@ -16,7 +17,9 @@ public class CryptoView extends JPanel {
         this.setLayout(new FlowLayout());
         listModel = new DefaultListModel<>();
         lst_cryptos = new JList<>(listModel);
-        this.add(lst_cryptos);
+        JScrollPane table_sp=new JScrollPane(lst_cryptos);
+        table_sp.setSize(new Dimension(600,600));
+        this.add(table_sp);
 
         this.backButton = new JButton("Back");
         this.add(backButton);

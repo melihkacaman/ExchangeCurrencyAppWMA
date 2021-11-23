@@ -1,6 +1,7 @@
 package api;
 
 import common.Crypto;
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -12,5 +13,6 @@ public interface ApiCryptoAbstract {
     // https://api.nomics.com/v1/prices?key=743fef512bfbcd6a506c533d4fd2b826a2680bed
 
     @GET("prices?key=743fef512bfbcd6a506c533d4fd2b826a2680bed")
-    Call<List<Crypto>> getData();
+    Observable<List<Crypto>> getData();
+
 }

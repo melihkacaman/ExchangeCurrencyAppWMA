@@ -5,7 +5,7 @@ import common.ActiveUser;
 import common.User;
 import local.CurrDefinition;
 import local.CurrDefinitionProcess;
-import models.HomeModel;
+import models.Home;
 import views.HomeView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +15,7 @@ import java.util.List;
 public class HomeController implements BaseController {
     private HomeView homeView;
     private List<CurrDefinition> currDefinitionList;
-    private HomeModel homeModel;
+    private Home homeModel;
 
     @Override
     public JPanel getView() {
@@ -25,7 +25,7 @@ public class HomeController implements BaseController {
     @Override
     public void initializeComponents() {
         currDefinitionList = CurrDefinitionProcess.currencies;
-        homeModel = new HomeModel(currDefinitionList);
+        homeModel = new Home(currDefinitionList);
         homeView = new HomeView(homeModel);
 
         homeView.addActionListener(new GoOnListener());

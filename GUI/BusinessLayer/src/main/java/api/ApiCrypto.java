@@ -2,10 +2,11 @@ package api;
 
 import com.google.gson.GsonBuilder;
 import common.Crypto;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.Observable;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class ApiCrypto {
         this.cryptos = new ArrayList<>();
         this.retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                 .build();
 
@@ -35,26 +37,10 @@ public class ApiCrypto {
         return apiCrypto;
     }
 
-    static public List<Crypto> getData(){
+    static public Observable<List<Crypto>> getObservableForCrypto(){
         ApiCrypto apiCrypto = ApiCrypto.getInstance();
         ApiCryptoAbstract apiCryptoAbstract = apiCrypto.retrofit.create(ApiCryptoAbstract.class);
-        final List<Crypto>[] result = new List[]{null};
 
-        Call<List<Crypto>> call = apiCryptoAbstract.getData();
-        call.enqueue(new Callback<List<Crypto>>() {
-            @Override
-            public void onResponse(Call<List<Crypto>> call, Response<List<Crypto>> response) {
-                if (response.isSuccessful()){
-                    result[0] = response.body();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Crypto>> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-        return result[0];
+        return apiCryptoAbstract.getData();
     }
 }

@@ -70,7 +70,8 @@ public class CurrencyController implements BaseController {
     private class CryptoListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ApiCrypto.getData();
+            App.pushScreen(new CryptoController());
+            App.nextScreen(CurrencyController.this.currencyView);
         }
     }
 }

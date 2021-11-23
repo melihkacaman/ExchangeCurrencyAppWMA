@@ -1,20 +1,19 @@
 package views;
 
 import local.CurrDefinition;
-import models.HomeModel;
+import models.Home;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HomeView extends JPanel{
     private JTextField txt_name;
     private JButton btn_send;
     private JComboBox<String> combo_currencyList;
-    private HomeModel model;
+    private Home model;
 
-    public HomeView(HomeModel model){
+    public HomeView(Home model){
         this.model = model;
         this.setLayout(new GridLayout(3, 2));
         add(new JLabel("Name: "));

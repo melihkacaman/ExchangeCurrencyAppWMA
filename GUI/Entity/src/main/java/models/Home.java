@@ -4,29 +4,29 @@ import local.CurrDefinition;
 
 import java.util.List;
 
-public class HomeModel {
+public class Home {
     private String name;
     private List<CurrDefinition> currencies;
     private CurrDefinition popularCurr;
 
-    public HomeModel(String name, List<CurrDefinition> currencies) {
+    public Home(String name, List<CurrDefinition> currencies) {
         this.name = name;
         this.currencies = currencies;
     }
 
-    public HomeModel(String name) {
+    public Home(String name) {
         this.name = name;
     }
 
-    public HomeModel(String name, CurrDefinition popularCurr) {
+    public Home(String name, CurrDefinition popularCurr) {
         this.name = name;
         this.popularCurr = popularCurr;
     }
 
-    public HomeModel() {
+    public Home() {
     }
 
-    public HomeModel(List<CurrDefinition> currencies) {
+    public Home(List<CurrDefinition> currencies) {
         this.currencies = currencies;
     }
 

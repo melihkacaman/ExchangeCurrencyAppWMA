@@ -26,7 +26,7 @@ public class App {
 
         mainScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel content = new JPanel(new GridBagLayout());
-        content.setBorder(new EmptyBorder(50, 50, 50, 50));
+        //content.setBorder(new EmptyBorder(150, 150, 500, 150));
         mainScreen.setContentPane(content);
 
         // add homeController
