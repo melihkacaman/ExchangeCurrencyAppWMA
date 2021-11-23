@@ -38,15 +38,14 @@ public class ApiCrypto {
     static public List<Crypto> getData(){
         ApiCrypto apiCrypto = ApiCrypto.getInstance();
         ApiCryptoAbstract apiCryptoAbstract = apiCrypto.retrofit.create(ApiCryptoAbstract.class);
+        final List<Crypto>[] result = new List[]{null};
 
         Call<List<Crypto>> call = apiCryptoAbstract.getData();
         call.enqueue(new Callback<List<Crypto>>() {
             @Override
             public void onResponse(Call<List<Crypto>> call, Response<List<Crypto>> response) {
                 if (response.isSuccessful()){
-                    for (Crypto crypto : response.body()) {
-                        System.out.println(crypto.price + " - " + crypto.currency);
-                    }
+                    result[0] = response.body();
                 }
             }
 
@@ -56,6 +55,6 @@ public class ApiCrypto {
             }
         });
 
-        return null;
+        return result[0];
     }
 }

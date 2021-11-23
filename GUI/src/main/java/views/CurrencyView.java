@@ -3,7 +3,6 @@ package views;
 import common.ActiveUser;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -14,7 +13,7 @@ public class CurrencyView extends JPanel {
     private JButton btn_calculate;
     private JList<String> lst_currencies;
     private DefaultListModel<String> listModel;
-    private JButton btn_allList;
+    private JButton btn_crypto;
 
     public CurrencyView() {
         this.setLayout(new FlowLayout());
@@ -45,8 +44,8 @@ public class CurrencyView extends JPanel {
         btn_calculate = new JButton("Calculate the currency");
         pnl3.add(btn_calculate);
 
-        btn_allList = new JButton("Crypto!");
-        pnl3.add(btn_allList);
+        btn_crypto = new JButton("Crypto!");
+        pnl3.add(btn_crypto);
 
         this.add(pnl3);
     }
@@ -67,8 +66,9 @@ public class CurrencyView extends JPanel {
         btn_calculate.addActionListener(listener);
     }
 
-    public void addListenerToAllListButton(ActionListener listener){
-        btn_allList.addActionListener(listener);
+    public void addListenerToCryptoButton(ActionListener listener){
+
+        btn_crypto.addActionListener(listener);
     }
 
     public void showMessage(String infoMessage, String titleBar){

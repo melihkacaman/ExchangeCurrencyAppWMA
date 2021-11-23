@@ -1,5 +1,6 @@
 package controllers;
 
+import api.ApiCrypto;
 import api.ApiCurrencyConnect;
 import app.App;
 import common.ActiveUser;
@@ -33,6 +34,7 @@ public class CurrencyController implements BaseController {
         getCurrencies();
         currencyView.addListenerToRefreshButton(new RefreshListener());
         currencyView.addListenerToCalculateButton(new CalculateListener());
+        currencyView.addListenerToCryptoButton(new CryptoListener());
     }
 
     private void getCurrencies(){
@@ -62,6 +64,13 @@ public class CurrencyController implements BaseController {
         public void actionPerformed(ActionEvent e) {
             App.pushScreen(new CalculateController());
             App.nextScreen(CurrencyController.this.currencyView);
+        }
+    }
+
+    private class CryptoListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ApiCrypto.getData();
         }
     }
 }
