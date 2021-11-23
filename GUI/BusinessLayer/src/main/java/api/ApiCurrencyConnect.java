@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ApiConnect {
+public class ApiCurrencyConnect {
     private static String base_currency = "USD";
     private static String URLapi = "https://freecurrencyapi.net/api/v2/latest?apikey=8569b880-39af-11ec-b510-31e1cbd4f707&base_currency=";
 

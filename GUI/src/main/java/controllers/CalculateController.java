@@ -1,8 +1,7 @@
 package controllers;
 
-import api.ApiConnect;
+import api.ApiCurrencyConnect;
 import app.App;
-import local.CurrDefinition;
 import local.CurrDefinitionProcess;
 import models.Calculate;
 import models.Currency;
@@ -13,7 +12,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.List;
 
 public class CalculateController implements BaseController {
     private CalculateView calculateView;
@@ -49,7 +47,7 @@ public class CalculateController implements BaseController {
                 }else{
                     Currency res = null;
                     try {
-                        res = ApiConnect.makeRequest(fromCode, toCode);
+                        res = ApiCurrencyConnect.makeRequest(fromCode, toCode);
                     } catch (IOException | ParseException ee) {
                         ee.printStackTrace();
                     }

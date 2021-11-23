@@ -1,6 +1,6 @@
 package controllers;
 
-import api.ApiConnect;
+import api.ApiCurrencyConnect;
 import app.App;
 import common.ActiveUser;
 import org.json.simple.parser.ParseException;
@@ -38,7 +38,7 @@ public class CurrencyController implements BaseController {
     private void getCurrencies(){
         new Thread(() -> {
             try {
-                List<String> getBunchOfCurrencies = ApiConnect.
+                List<String> getBunchOfCurrencies = ApiCurrencyConnect.
                         getBunchOfCurrencies(baseCurrency,popularCurrencies);
                 if (!getBunchOfCurrencies.isEmpty())
                     CurrencyController.this.currencyView.populateList(getBunchOfCurrencies);
